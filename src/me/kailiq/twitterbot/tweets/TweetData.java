@@ -1,21 +1,19 @@
-package me.kailiq.userdata;
+package me.kailiq.twitterbot.tweets;
 
 import org.apache.commons.lang3.math.NumberUtils;
-import twitter4j.api.UsersResources;
 
 import java.io.*;
-import java.lang.reflect.Member;
 import java.util.Properties;
 
-public class UserData {
+public class TweetData {
     private String name;
     private File file = new File("");
     private Properties properties;
-    public UserData(String name) {
+    public TweetData(String name) {
         this.name = name;
 
-        File dic = new File(file.getAbsolutePath() + File.separator + "userdata");
-        File f = new File(file.getAbsolutePath() + File.separator + "userdata" + File.separator + name + ".yml");
+        File dic = new File(file.getAbsolutePath() + File.separator + "tweetdata");
+        File f = new File(file.getAbsolutePath() + File.separator + "tweetdata" + File.separator + name + ".yml");
 
         try {
             if(!dic.exists()) {
@@ -123,7 +121,7 @@ public class UserData {
         return false;
     }
 
-    public UserData getConfig() {
+    public TweetData getConfig() {
         return this;
     }
 

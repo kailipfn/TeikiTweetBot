@@ -5,6 +5,8 @@ import me.kailiq.listener.JoinListener;
 import me.kailiq.listener.MessageListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
 
@@ -27,6 +29,7 @@ public class Main {
             else {
                 try {
                     jda = new JDABuilder(token).addEventListeners(new JoinListener()).addEventListeners(new MessageListener()).build();
+                    jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.playing("!help でヘルプ表示"));
                 } catch (LoginException e) {
                     e.printStackTrace();
                     System.out.println("Login Failed");
@@ -52,5 +55,11 @@ public class Main {
     }
     public static JDA getJDA() {
         return jda;
+    }
+    public static String getConsumerKey() {
+        return consumerKey;
+    }
+    public static String getSecretKey() {
+        return secretKey;
     }
 }
