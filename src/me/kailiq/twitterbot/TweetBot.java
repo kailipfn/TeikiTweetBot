@@ -14,7 +14,6 @@ public class TweetBot implements Runnable {
                 if(udm.getAccess() != null && udm.getSecret() != null) {
                     TwitterBot tb = new TwitterBot(udm.getAccess(),udm.getSecret());
                     tb.setup();
-                    tb.tweet("");
                 }
             }
         }

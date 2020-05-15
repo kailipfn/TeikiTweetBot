@@ -20,7 +20,7 @@ public class TwitterBot {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey(Main.getConsumerKey())
-                .setOAuthConsumerSecret(Main.getConsumerKey())
+                .setOAuthConsumerSecret(Main.getSecretKey())
                 .setOAuthAccessToken(access)
                 .setOAuthAccessTokenSecret(secret);
         TwitterFactory tf = new TwitterFactory(cb.build());

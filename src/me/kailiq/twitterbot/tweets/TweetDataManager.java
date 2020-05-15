@@ -15,36 +15,28 @@ public class TweetDataManager {
         this.member = member;
     }
 
-    public void setTicket(String name) {
-        this.tweetdata.setString("ticket", name);
+    public void setTweet(int a) {
+        tweetdata.setInt("tweets",a);
     }
 
-    public String getTicket() {
-        return this.tweetdata.getString("ticket");
-    }
-
-    public void setToken(String access,String secret) {
-        this.tweetdata.setString("access",access);
-        this.tweetdata.setString("secret",secret);
-    }
-
-    public String getAccess() {
-        return this.tweetdata.getString("access");
-    }
-
-    public String getSecret() {
-        return this.tweetdata.getString("secret");
-    }
-
-    public static List<String> getList() {
-        File file = new File("");
-        File dic = new File(file.getAbsolutePath() + File.separator + "userdata");
-        List<String> str = new ArrayList<>();
-        if(dic.listFiles() != null) {
-            for(File f : dic.listFiles()) {
-                str.add(f.getName());
-            }
+    public int getTweet() {
+        if(tweetdata.get("tweets") != null) {
+            return tweetdata.getInt("tweets");
         }
-        return str;
+        return 0;
+    }
+
+    public void addTweet(String str) {
+        int a = getTweet() + 1;
+        setTweet(a);
+        tweetdata.setString(a + "",str);
+    }
+
+    public void removeTweet(int a) {
+        tweetdata.setString(a + "",null);
+    }
+
+    public String getTweet(int a) {
+        return tweetdata.getString(a + "");
     }
 }
